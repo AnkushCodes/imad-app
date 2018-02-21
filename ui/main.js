@@ -7,6 +7,6 @@ element.innerHTML='New Value';
 
 var img=document.getElementById('img');
 
-img.onClick=function(){
+img.onclick=function(){
     img.style.marginLeft='100px'
 };
