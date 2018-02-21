@@ -8,5 +8,5 @@ element.innerHTML='New Value';
 var img=document.getElementById('img');
 
 img.onClick=function(){
-    img.marginLeft='100px'
+    img.style.marginLeft='100px'
 };
