@@ -23,7 +23,7 @@ button.onclick=function(){
 
 
 
-var nameInput=document.getElementById('name');
+            var nameInput=document.getElementById('name');
             var name = nameInput.value;
             var submit=document.getElementById('submit_btn');
             submit.onclick = function(){
@@ -31,7 +31,7 @@ var nameInput=document.getElementById('name');
              request.onreadystatechange = function(){
                    if(request.readyState===XMLHttpRequest.DONE){
                         if(request.status===200){
-                            var names=responseText;
+                            var names=request.responseText;
                             name=JSON.parse(names);
                             var list='';
                             for(var i=0;i<names.length;i++){
