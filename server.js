@@ -5,6 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+
 var articles={ 
       'article-one':{
             title:'Article One | Ankush Kanchar',
@@ -52,7 +53,7 @@ var articles={
     };
    
 
-  function createTemplate(data){
+ function createTemplate(data){
 
       var title=data.title;
       var date=data.date;
@@ -130,10 +131,6 @@ app.get('/submit-name',function(req,res){
    res.send(JSON.stringify(names));
     
 });
-
-
-
-
 
 app.get('/:articleName',function(req,res){
     var articleName=req.params.articleName;
