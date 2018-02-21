@@ -1,12 +1,7 @@
 var button =document.getElementById('counter');
 
-
-
-
 button.onclick=function(){
-    
-    
-    
+ 
     var request=new XMLHttpRequest();
     
     request.onreadystatechange = function(){
@@ -32,7 +27,7 @@ var submit=document.getElementById('submit_btn');
 submit.onclick = function(){
     var names=['name1','name2','name3'];
     var list='';
-    for(var i=0;i<names.lenght;i++){
+    for(var i=0;i<names.length;i++){
         list+= '<li>'+names[i]+'</li>';
     }
     
