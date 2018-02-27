@@ -126,8 +126,8 @@ app.get('/login',function(req,res){
               }else{
                 var dbString=result.rows[0].password;
                 var salt=dbString.split('$')[2];
-                var hashPassword=hash(password,salt);
-                if(hashPassowrd===dbString){
+                var hashedPassword=hash(password,salt);
+                if(hashedPassowrd===dbString){
                     res.send('user created sucessfully')
                 }else{
                       res.send(403).send('username / password invalid');
