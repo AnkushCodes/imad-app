@@ -122,7 +122,7 @@ app.get('/login',function(req,res){
             res.status(500).send(err.toString());
          }else{
               if(result.rows.lenght===0){
-                res.send('username / password invalid');
+                res.send(403).send('username / password invalid');
               }else{
                 var dbString=result.rows[0].password;
                 var salt=dbString.split('$')[2];
@@ -130,7 +130,7 @@ app.get('/login',function(req,res){
                 if(hashPassowrd===dbString){
                     res.send('user created sucessfully')
                 }else{
-                     res.send('username / password invalid');
+                      res.send(403).send('username / password invalid');
                
                     }
                }
