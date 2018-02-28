@@ -131,8 +131,9 @@ app.post('/login',function(req,res){
                 var dbString=result.rows[0].password;
                 var salt=dbString.split('$')[2];
                 var hashedPassword=hash(password,salt);
+                
                 if(hashedPassword===dbString){
-                    req.session.auth = {userId:result.rows[0].id};
+                    req.session.auth = {userId: result.rows[0].id};
                     res.send('user created sucessfully');
                 }else{
                       res.send(403).send('username / password invalid');
@@ -143,7 +144,14 @@ app.post('/login',function(req,res){
     });
 });
 
-
+app.get('/check-login', function(req,res){
+    if(req.session && req.session.auth && req.session.auth.userId){
+        req.send('you are logged in'+req.session.auth.userId.toString());
+    }else{
+        req.send('you are not logged in');
+    }
+    
+});
 
 
 
@@ -167,14 +175,7 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
-app.get('/check-login', function(req,res){
-    if(req.session && req.session.auth && req.session.auth.userId){
-        req.send('you are logged in' + req.session.auth.userId.toString());
-    }else{
-        req.send('you are not logged in');
-    }
-    
-});
+
 
 app.get('/articles/:articleName',function(req,res){
    
