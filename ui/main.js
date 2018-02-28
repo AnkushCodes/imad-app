@@ -6,10 +6,7 @@
              request.onreadystatechange = function(){
                    if(request.readyState===XMLHttpRequest.DONE){
                         if(request.status===200){
-                           
-                           
-                           
-                           alert('loged in sucessfully');
+                            alert('loged in sucessfully');
                         }else if(request.status===403){
                             alert('username and password is incorrect');
                         }else if(request.status===500){
