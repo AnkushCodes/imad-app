@@ -7,7 +7,7 @@
                    if(request.readyState===XMLHttpRequest.DONE){
                         if(request.status===200){
                            
-                           req.session.auth = { userId: result.rows[0].id};
+                           
                            
                            alert('loged in sucessfully');
                         }else if(request.status===403){
