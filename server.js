@@ -166,6 +166,14 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
+app.get('/check-login', function(req,res){
+    if(req.session && req.session.auth && req.session.auth.userId){
+        req.send('you are logged in' + req.session.auth.userId.toString());
+    }else{
+        req.send('you are not logged in');
+    }
+    
+});
 
 app.get('/articles/:articleName',function(req,res){
    
