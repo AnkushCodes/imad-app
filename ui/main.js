@@ -6,16 +6,14 @@
              request.onreadystatechange = function(){
                    if(request.readyState===XMLHttpRequest.DONE){
                         if(request.status===200){
-                            var names=request.responseText;
-                            names=JSON.parse(names);
-                            var list='';
-                            for(var i=0;i<names.length;i++){
-                                list+= '<li>'+names[i]+'</li>';
-                            }
-                        
-                        var ul=document.getElementById('namelist');
-                        ul.innerHTML=list;
-                                 
+                           console.log('user loged in');
+                           alert('loged in sucessfully');
+                        }else(request.status===403){
+                            alert('username and password is incorrect');
+                        }else(request.status===500){
+                            alert('somthing went wrong on server');
+                        }
+                
                  }
         }
     };
@@ -23,8 +21,9 @@
         
  var username=document.getElementById('username').value;
  var password=document.getElementById('password').value;
-
- request.open('POST','http://ankushkanchar07.imad.hasura-app.io/submit-name?name='+name,true);
+ console.log(username);
+ console.log(password);
+ request.open('POST','http://ankushkanchar07.imad.hasura-app.io/login',true);
  request.send(JSON.stringify({username:username,password:password}));
 
 };
