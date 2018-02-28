@@ -6,7 +6,9 @@
              request.onreadystatechange = function(){
                    if(request.readyState===XMLHttpRequest.DONE){
                         if(request.status===200){
-                           console.log('user loged in');
+                           
+                           req.session.auth = { userId : result.rows[0].id};
+                           
                            alert('loged in sucessfully');
                         }else if(request.status===403){
                             alert('username and password is incorrect');
