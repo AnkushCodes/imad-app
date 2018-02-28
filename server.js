@@ -150,8 +150,15 @@ app.get('/check-login', function(req,res){
     }else{
         res.send('you are not logged in');
     }
-    
 });
+   
+ app.get('/logout',function(req,res){
+   delete req.session.auth;
+   res.send('loged out');
+ });
+ 
+ 
+    
 
 
 
